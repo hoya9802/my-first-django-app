@@ -1,0 +1,73 @@
+<!-- base.html로부터 상속을 받아옴! 항상 가장 위에서 삽입 -->
+{% extends 'base.html' %}
+
+<!-- 추후 static 파일을 사용시 미리 load 해주어야 함 -->
+{% load static %}
+
+<!-- 북마크 이름설정, 검색엔진이 페이지를 인덱싱할때 사용 -->
+{% block title %}home.html{% endblock %}
+
+{% block extra-style %}
+<style type="text/css">
+.home-image {
+    background-image: url("{% static 'img/tf_lockdown.jpg' %}");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    height: 500px;
+    border-top: 10px solid #000000;
+    border-bottom: 10px solid #000000;
+    padding: 20px 0 0 20px;
+}
+.title {
+  color: #09ff00;
+  font-weight: bold;
+}
+.powered {
+  position: relative;
+  top: 84%;
+  color: #09ff00;
+  font-style: italic;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+  <div class="home-image">
+    <h2 class="title">Django - Python Web Programming</h2>
+    <!-- <i> 태그는 폰트어썸의 아이콘을 사용할때 사용. 이름및 사용법은 폰트어썸 홈페이지에서 확인 -->
+    <h4 class="powered"><i class="fas fa-arrow-circle-right"></i> powered by django and bootstrap</h4>
+  </div>
+
+  <hr style="margin: 10px 0;">
+
+  <div class="row text-center">
+    <div class="col-sm-6" style="color:#09ff00">
+      <h3>Bookmark App</h3>
+      <p style="color:#51c8ff">
+        Bookmark is a Uniform Resource Identifier (URI)
+        that is stored for later retrieval in any of various storage formats.
+        You can store your own bookmarks by Bookmark application.
+        It's also possible to update or delete your bookmarks.
+      </p>
+    </div>
+    <!-- bootstrap은 총 12컬럼을 가지고 있다. -->
+    <div class="col-sm-6" style="color:#09ff00">
+      <h3>Blog App</h3>
+      <p style="color:#51c8ff">
+        This application makes it possible to log daily events or write your own interests
+        such as hobbies, techniques, etc.
+        A typical blog combines text, digital images, and links to other blogs, web pages,
+        and other media related to its topic.
+      </p>
+    </div>
+  </div>
+  {% endblock %}
+
+{% block footer %}
+<footer class="fixed-bottom bg-dark">
+  <div class="text-white fst-italic text-end me-3">
+    Copyright &copy: IanDLog by Ian
+  </div> 
+</footer>
+{% endblock %}

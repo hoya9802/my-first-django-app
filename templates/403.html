@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}403.html{% endblock %}
+
+{% block content %}
+<h1 style="color:#09ff00">Permission Denied (403)</h1>
+<br>
+
+<div class="alert alert-danger">
+    <div class="fw-bold">{{ exception }}</div>
+</div>
+{% endblock %}

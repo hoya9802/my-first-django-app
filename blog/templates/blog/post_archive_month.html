@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}post_archive_month.html{% endblock %}
+
+{% block content %}
+<h1 style="color:#09ff00">Post Archives for {{ month|date:'N Y' }}</h1>
+<br><br>
+<div style="padding-bottom: 20px;">
+    <ul>
+        {% for post in random_parameter %}
+        <li class="h5">{{ post.modify_dt|date:'Y-m-d' }}&nbsp;:&emsp;
+            <a href="{{post.get_absolute_url}}"><strong>{{post.title}}</strong></a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

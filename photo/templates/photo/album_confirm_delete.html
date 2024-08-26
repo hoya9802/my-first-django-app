@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}album_confirm_delete.html{% endblock %}
+
+{% block content %}
+<h1 style="color:#09ff00">Album Delete <small class="fst-italic">(including related photos)</small></h1>
+<br>
+<form action="." method="post">{% csrf_token %}
+    <p>Are you sure you want to delete "{{object}}"</p>
+    <input type="submit" value="Confirm" class="btn btn-info btn-sm"/>
+</form>
+{% endblock %}

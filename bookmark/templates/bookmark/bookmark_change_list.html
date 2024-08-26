@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}bookmark_change_llst.html{% endblock %}
+
+{% block content %}
+<h1 style="color:#09ff00">Bookmark Change - {{user}}</h1>
+<br>
+
+<table class="table table-dark border-primary">
+    <thread>
+        <tr class="table-info">
+            <th>Title</th>
+            <th>Url</th>
+            <th>Owner</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thread>
+
+    <tbody>
+        {% for item in object_list %}
+        <tr>
+            <td>{{ item.title }}</td>
+            <td>{{ item.url }}</td>
+            <td>{{ item.owner }}</td>
+            <td><a href="{% url 'bookmark:update' item.id %}">Update</a></td>
+            <td><a href="{% url 'bookmark:delete' item.id  %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

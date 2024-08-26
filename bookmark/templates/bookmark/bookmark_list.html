@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}bookmark_list.html{% endblock %}
+
+{% block content %}
+<div style="padding-top: 20px; padding-bottom: 20px;">
+    <h1 style="color:#09ff00">Bookmark List</h1>
+    <br>
+
+    <ul>
+        {% for bookmark in object_list %}
+        <li style="color:#51c8ff">{{bookmark.title}}:&nbsp;&nbsp;&nbsp;
+            <a href="{% url 'bookmark:detail' bookmark.id %}">{{bookmark.url}}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

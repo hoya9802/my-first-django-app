@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}register_done.html{% endblock %}
+
+{% block content %}
+    <h1 style="color:#09ff00">Registration Completed Successfully</h1>
+    <br>
+
+    <p>Thank you for registering.</p>
+
+    <p class="fst-italic"><a href="{% url 'login' %}">Log in</a></p>
+{% endblock %}

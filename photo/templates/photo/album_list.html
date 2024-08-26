@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}album_list.html{% endblock %}
+
+{% block extra-style %}
+<style>
+.thumbnail {
+    border: 3px solid #09ff00;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+    {% for item in object_list %}
+        <div class="mt-5">
+            <a class="h2" href="{{ item.get_absolute_url }}">{{ item.name }}
+            </a>&emsp;
+            <span class="fst-italic h5">{{ item.description }}</span>
+        </div>
+        <!-- 수평줄을 그리고 하단 여백을 20px로 줍니다. -->
+        <hr style="margin: 0 0 20px 0;">
+        <div class="container text-center">
+            <div class="row">
+                {% for photo in item.photo_set.all|slice:":5" %}
+                <div class="col mx-3">
+                    <div class="thumbnail">
+                        <a href="{{ photo.get_absolute_url }}">
+                            <img src="{{ photo.image.thumb_url }}" style="width: 100%;">
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

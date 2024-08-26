@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}bookmark_detail.html{% endblock %}
+
+{% block content %}
+<div style="padding-top: 20px; padding-bottom: 20px;">
+    <h3 style="color:#09ff00">{{object.title}}:&nbsp;&nbsp;&nbsp;
+        <a href="{{object.url}}">{{object.url}}</a></h3>
+</div>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end" style="padding-bottom: 20px;">
+    <a class="btn btn-info" href="{% url 'bookmark:index' %}" role="button">뒤로가기</a>
+</div>
+{% endblock %}
